@@ -1,0 +1,26 @@
+import { cons } from '@hexlet/pairs';
+import { startGame, gameRoundsCount, getRandomNumber } from '../index.js';
+
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const isEven = (number) => number % 2 === 0;
+
+const generateRoundsData = () => {
+  const rounds = [];
+
+  for (let index = 0; index < gameRoundsCount; index += 1) {
+    const question = getRandomNumber();
+    const answer = isEven(question) ? 'yes' : 'no';
+    const round = cons(question, answer);
+    rounds.push(round);
+  }
+
+  return rounds;
+};
+
+const startEvenGame = () => {
+  const roundsData = generateRoundsData();
+  startGame(gameDescription, roundsData);
+};
+
+export default startEvenGame;
