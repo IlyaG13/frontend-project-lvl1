@@ -23,7 +23,7 @@ export const startGame = (gameDescription, rounds) => {
 
     if (userAnswer !== trueAnswer) {
       console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'. Let's try again, ${userName}!`,
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.\nLet's try again, ${userName}!`,
       );
       return;
     }
