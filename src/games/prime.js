@@ -18,7 +18,7 @@ const isPrime = (number) => {
   return true;
 };
 
-const generateRounds = () => {
+const generateRoundsData = () => {
   const rounds = [];
 
   for (let index = 0; index < gameRoundsCount; index += 1) {
@@ -32,9 +32,6 @@ const generateRounds = () => {
   return rounds;
 };
 
-const startPrimeGame = () => {
-  const gameRounds = generateRounds();
-  startGame(gameDescription, gameRounds);
-};
+const startPrimeGame = () => startGame(gameDescription, generateRoundsData);
 
 export default startPrimeGame;

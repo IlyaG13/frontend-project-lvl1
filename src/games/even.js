@@ -19,9 +19,6 @@ const generateRoundsData = () => {
   return rounds;
 };
 
-const startEvenGame = () => {
-  const roundsData = generateRoundsData();
-  startGame(gameDescription, roundsData);
-};
+const startEvenGame = () => startGame(gameDescription, generateRoundsData);
 
 export default startEvenGame;

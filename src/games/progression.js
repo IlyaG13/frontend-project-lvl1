@@ -21,7 +21,7 @@ const hideProgressionElement = (progression, number) => {
   return progressionCopy;
 };
 
-const generateRounds = () => {
+const generateRoundsData = () => {
   const rounds = [];
 
   for (let index = 0; index < gameRoundsCount; index += 1) {
@@ -39,9 +39,6 @@ const generateRounds = () => {
   return rounds;
 };
 
-const startProgressionGame = () => {
-  const gameRounds = generateRounds();
-  startGame(gameDescription, gameRounds);
-};
+const startProgressionGame = () => startGame(gameDescription, generateRoundsData);
 
 export default startProgressionGame;

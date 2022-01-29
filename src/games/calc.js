@@ -14,7 +14,7 @@ const getMathResult = (number1, number2, operator) => {
     case '*':
       return number1 * number2;
     default:
-      return null;
+      throw new Error(`Unknown order state: '${operator}'!`);
   }
 };
 
@@ -34,9 +34,6 @@ const generateRoundsData = () => {
   return rounds;
 };
 
-const startCalcGame = () => {
-  const roundsData = generateRoundsData();
-  startGame(gameDescription, roundsData);
-};
+const startCalcGame = () => startGame(gameDescription, generateRoundsData);
 
 export default startCalcGame;

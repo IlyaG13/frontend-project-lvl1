@@ -26,9 +26,6 @@ const generateRoundsData = () => {
   return rounds;
 };
 
-const startGcdGame = () => {
-  const roundsData = generateRoundsData();
-  startGame(gameDescription, roundsData);
-};
+const startGcdGame = () => startGame(gameDescription, generateRoundsData);
 
 export default startGcdGame;
