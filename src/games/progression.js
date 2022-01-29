@@ -1,16 +1,15 @@
 import { cons } from '@hexlet/pairs';
-import { startGame, gameRoundsCount, getRandomNumber } from '../index.js';
+import { startGame, gameRoundsCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const gameDescription = 'What number is missing in the progression?';
 const separator = '..';
 
 const generateProgression = (start, length, step) => {
-  const progression = [];
-  let currentNumber = start;
+  const progression = [start];
 
-  for (let index = 0; index < length; index += 1) {
-    progression.push(currentNumber);
-    currentNumber += step;
+  for (let index = 0; index < length - 1; index += 1) {
+    progression.push(progression[index] + step);
   }
 
   return progression;
@@ -20,11 +19,6 @@ const hideProgressionElement = (progression, number) => {
   const progressionCopy = [...progression];
   progressionCopy[number] = separator;
   return progressionCopy;
-};
-
-const getQuestion = (progression) => {
-  const progressionToString = progression.join(' ');
-  return progressionToString;
 };
 
 const generateRounds = () => {
@@ -38,8 +32,7 @@ const generateRounds = () => {
     const randomNumber = getRandomNumber(1, progression.length - 1);
     const progressionWithHideElement = hideProgressionElement(progression, randomNumber);
     const answer = String(progression[randomNumber]);
-    const question = getQuestion(progressionWithHideElement);
-    const round = cons(question, answer);
+    const round = cons(progressionWithHideElement.join(' '), answer);
     rounds.push(round);
   }
 

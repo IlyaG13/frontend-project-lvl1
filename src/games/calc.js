@@ -1,27 +1,21 @@
 import { cons } from '@hexlet/pairs';
-import { startGame, gameRoundsCount, getRandomNumber } from '../index.js';
+import { startGame, gameRoundsCount } from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const operators = ['+', '-', '*'];
 const gameDescription = 'What is the result of the expression?';
 
 const getMathResult = (number1, number2, operator) => {
-  let result;
-
   switch (operator) {
     case '+':
-      result = number1 + number2;
-      break;
+      return number1 + number2;
     case '-':
-      result = number1 - number2;
-      break;
+      return number1 - number2;
     case '*':
-      result = number1 * number2;
-      break;
+      return number1 * number2;
     default:
       return null;
   }
-
-  return result;
 };
 
 const generateRoundsData = () => {
